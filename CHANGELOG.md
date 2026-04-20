@@ -5,6 +5,29 @@ Toutes les évolutions notables de `pmm-opportunity` sont documentées ici.
 Le format s'inspire de [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 et ce projet suit le [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2026-04-20
+
+Méthode de segmentation v1.0 → **v1.1** : matrice d'axes 2D obligatoire avant toute segmentation nommée. Grille de scoring inchangée (reste en v1.0).
+
+### Added
+
+- **Règle absolue 7** dans `SKILL.md` : matrice d'axes 2D explicite avant segmentation nommée (default *qui* × *quand/pourquoi*), toute case non instanciée listée avec statut `hors scope` / `non couvert` / `à investiguer`
+- **Étape 2a** dans `references/framework-6-etapes.md` : construction de la matrice d'axes, axes default pour gifting, axes alternatifs par catégorie, template de matrice, pièges à éviter, exemple reconstitué (run storybook 2026-04-20)
+- Scission de l'étape 2 en **2a (matrice)** + **2b (segmentation nommée)** — chaque segment nommé pointe explicitement vers la case de matrice qu'il instancie
+- **Block 3.0 "Matrice d'axes"** obligatoire dans le format de livrable (`references/output-format.md`), en tête de la section Segmentation
+- **4e question de challenge au Step 5** : interception dédiée sur la matrice (case oubliée, mal nommée, mal statuée)
+- **Mention versioning "Méthode de segmentation : v1.1"** en en-tête du block 3 du livrable, distincte de la grille de scoring v1.0
+- Amendement Step 6 pour vérifier les cases `❓ non couvert` et `🔍 à investiguer` de la matrice lors du blind-spot hunting
+- Garde-fou de sortie : "Matrice d'axes manquante = livrable invalide" dans les garde-fous du `SKILL.md`
+
+### Why
+
+Run storybook 2026-04-20 (analyse d'opportunité sur produit AI-generated children's book US) : segment **"Occasion-driven parent gift"** (Mother's Day, Father's Day) absent de la segmentation initiale, détecté en post-scoring par le PM. Analyse racine : segmentation faite sur un seul axe (acheteur × âge enfant), sans matrice 2D explicite destinataire × trigger. Ce patch rend le garde-fou structurel plutôt que comportemental.
+
+### Breaking changes
+
+Aucun breaking côté invocation du skill (mêmes sous-commandes, mêmes prompts). Les livrables produits avant 2026-04-20 sont en `Méthode de segmentation : v1.0` (implicite) et ne doivent pas être comparés naïvement à un livrable v1.1.
+
 ## [0.1.0] — 2026-04-20
 
 Version initiale du plugin — framework d'évaluation et priorisation d'opportunités produit sur le marché photo US, à destination des PMs Pictarine.
@@ -36,4 +59,5 @@ Version initiale du plugin — framework d'évaluation et priorisation d'opportu
 - Livrable : concis et impactant, pas de borne de mots
 - Ce plugin remplace l'ancien skill `pmm-market-partner:pmm-opportunities`
 
+[0.2.0]: https://github.com/pictarine/pmm-opportunity/releases/tag/v0.2.0
 [0.1.0]: https://github.com/pictarine/pmm-opportunity/releases/tag/v0.1.0

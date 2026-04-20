@@ -38,6 +38,7 @@ Ces règles priment sur toute autre instruction. Lire `references/sourcing-rules
 4. **US only** — si une source n'est pas US, le signaler. Ne pas mélanger données monde et US.
 5. **Pas de recommandation** — analyse, pas prescription. Ne jamais écrire "tu devrais faire X".
 6. **Scores défendus ou marqués low confidence** — si un score ne peut pas être défendu par au moins une source crédible, le marquer `low confidence` et expliquer la limite.
+7. **Matrice d'axes avant segmentation** — avant toute segmentation nommée (étape 2), construire explicitement une matrice 2D d'axes pertinents. Default : un axe *"qui"* (destinataire/acheteur) × un axe *"quand/pourquoi"* (trigger/occasion). Adapter les axes à la catégorie si pertinent, mais ne jamais sauter l'exercice. Toute case non instanciée doit être listée avec son statut (`hors scope` / `non couvert` / `à investiguer`). La matrice figure dans le livrable (block 3.0). Détail opérationnel : `references/framework-6-etapes.md` étape 2a.
 
 ## Routing des sous-commandes
 
@@ -125,10 +126,10 @@ Si le run est interrompu (timeout, panne réseau, PM stop), le PM peut relancer 
 Résumé des étapes :
 
 1. **Définir la catégorie** — clarifier le périmètre (Photo Book, Wall Art, Prints, Photo Gifts, Digital Frames, etc.)
-2. **Segmentation** — draft de segments croisant psychographique / démographique / comportemental, soumis au challenge du PM avant la suite
+2. **Segmentation** — **(a) matrice d'axes 2D obligatoire AVANT de nommer les segments** puis (b) draft de segments croisant psychographique / démographique / comportemental, soumis au challenge du PM en étape 5
 3. **Opportunity framing** — par segment : JTBD / alternatives (au-delà des concurrents directs) / failure signals sourcés par social listening
 4. **Scoring** — grille 5 critères pondérés (cf. `references/scoring-grid.md`), rationale + source par cellule, total pondéré et ranking
-5. **Challenge** — présenter le classement, demander au PM où il diverge, creuser les raisons
+5. **Challenge** — présenter le classement, demander au PM où il diverge, creuser les raisons, **interroger aussi la matrice d'axes** (voir question 4 dans `framework-6-etapes.md` étape 5)
 6. **Blind spots** — chercher les segments absents des données de commandes actuelles, demander accès interne au PM ou raisonner sur signaux externes
 
 ### Step 3 — Production du livrable
@@ -137,7 +138,7 @@ Structure à respecter, identique quelle que soit la destination (cf. `reference
 
 1. Synthèse exécutive (5 lignes max)
 2. Cadrage : catégorie, périmètre, inputs du PM reformulés
-3. Segmentation avec sources
+3. Segmentation avec sources — **précédée du block 3.0 "Matrice d'axes" obligatoire**
 4. Opportunity framing par segment (JTBD, alternatives, failure signals)
 5. Tableau de scoring avec rationales sourcés par cellule
 6. Ranking final pondéré et zones de divergence avec le PM
@@ -188,6 +189,7 @@ Règles détaillées dans `references/tone-and-posture.md`.
 - **Sources US exclusivement, partout** : une source non-US n'est jamais utilisée, y compris pour contextualiser. Si aucune source US disponible sur un point, marquer `non couvert`
 - Livrable : analyse en français, **citations sources conservées en anglais** sans traduction (fidélité aux verbatims)
 - Livrable concis et impactant, sans fioriture, sans borne de mots artificielle — le signal prime sur le volume
+- **Matrice d'axes manquante = livrable invalide** : si le block 3.0 n'est pas produit, le livrable ne doit pas être émis. Le skill retourne à l'étape 2a.
 
 ## Outils attendus
 

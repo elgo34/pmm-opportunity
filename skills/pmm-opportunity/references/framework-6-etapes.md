@@ -2,6 +2,8 @@
 
 Ce fichier détaille chaque étape du framework `pmm-opportunity`. Le SKILL.md orchestre, ce fichier précise les livrables attendus, les questions à poser et les pièges à éviter.
 
+**Méthode de segmentation : v1.1** (bump lié à l'introduction de l'étape 2a — matrice d'axes obligatoire). Toute version précédente des livrables est antérieure à ce garde-fou et ne doit pas être comparée naïvement à un livrable v1.1.
+
 ## Étape 1 — Définir la catégorie
 
 **Objectif** : clarifier sans ambiguïté le périmètre de l'analyse avant tout travail de fond.
@@ -22,11 +24,79 @@ Ce fichier détaille chaque étape du framework `pmm-opportunity`. Le SKILL.md o
 - Mélanger catégorie (ce que le user achète) et use case (pourquoi il l'achète)
 - Confondre catégorie Pictarine avec catégorie marché (Pictarine peut avoir sa nomenclature interne ; aligner sur la nomenclature marché US publique)
 
-## Étape 2 — Segmentation
+## Étape 2a — Matrice d'axes (OBLIGATOIRE avant toute segmentation nommée)
 
-**Objectif** : produire un draft de segments du marché cible, croisant trois angles.
+**Règle absolue 7 du SKILL.md.** Aucune segmentation nommée ne peut être produite avant d'avoir construit cette matrice.
 
-**Les trois angles à croiser obligatoirement** :
+**Objectif** : garantir qu'on balaye l'espace des segments possibles avant de les nommer, pour ne pas rater de segments orthogonaux.
+
+### Principe
+
+Un segment se définit au croisement d'au moins deux axes. Nommer des segments "au fil de la plume" (un par persona supposé) fait systématiquement rater les cases orthogonales. La matrice 2D force à **scanner l'espace** avant de le peupler.
+
+### Axes par défaut
+
+**Axe 1 — "Qui"** : destinataire / acheteur / utilisateur final. Distinguer si nécessaire :
+
+- destinataire du produit (qui reçoit le cadeau)
+- acheteur (qui paie)
+- utilisateur (qui consomme)
+
+Pour un produit gifting, ces trois peuvent être différentes personnes. L'axe "qui" peut alors être décomposé.
+
+**Axe 2 — "Quand / pourquoi"** : trigger d'achat. Typologie de triggers :
+
+- **Calendaire** (date fixe) : Mother's Day, Father's Day, Christmas, Valentine's Day, anniversaires, rentrée scolaire
+- **Milestone / événement** : naissance, mariage, diplôme, déménagement, décès
+- **Rituel quotidien ou récurrent** : bedtime, weekend, vacances
+- **Impulsion / envie** : découverte produit, inspiration social media, coup de cœur
+
+### Axes alternatifs selon la catégorie
+
+La matrice par défaut *qui × trigger* convient aux catégories gifting. Pour d'autres catégories, adapter :
+
+- **Catégorie utilitaire** (ex. prints à la demande) : *qui* × *usage final* (archivage / affichage / partage)
+- **Catégorie feature** (ex. AI layout auto) : *qui* × *volume d'input* (10 photos / 100 / 500)
+- **Catégorie abonnement** (ex. Chatbooks monthly) : *qui* × *fréquence souhaitée*
+
+Choisir les axes en cohérence avec le JTBD anticipé. Si tu hésites, construire deux matrices alternatives et choisir celle qui fait émerger le plus de cases actionnables.
+
+### Livrable attendu de l'étape 2a
+
+Un tableau visuel (markdown table ou grille) avec :
+
+1. **Les axes explicités** (intitulé de l'axe + valeurs couvertes)
+2. **Chaque case** marquée avec un statut :
+   - ✅ **Instanciée** : un segment nommé adresse cette case → ce segment sera détaillé à l'étape 2b
+   - ⚪ **Hors scope** : case volontairement exclue (avec justification d'une ligne)
+   - ❓ **Non couvert** : case pertinente mais sans donnée suffisante pour instancier
+   - 🔍 **À investiguer** : case potentielle, demander au PM si on l'instancie ou on la blind-spot
+3. **Justification courte pour toute case non instanciée** — pourquoi on ne segmente pas là.
+
+### Exemple (catégorie storybook enfant, run 2026-04-20 corrigé)
+
+| Destinataire ↓ / Trigger → | Rituel quotidien | Milestone bébé | Milestone enfant | Occasion calendaire adulte | Activité loisir |
+|---|---|---|---|---|---|
+| Enfant 0-2 | ⚪ Hors scope (pas de rituel à cet âge) | ✅ Segment C Newborn | ⚪ Hors scope | ⚪ Hors scope | ⚪ Hors scope |
+| Enfant 3-6 | ✅ Segment A Bedtime | ⚪ Hors scope | ✅ inclus dans Segment B | ❓ Non instancié | ✅ Segment E Co-Create |
+| Enfant 4-8 | ⚪ | ⚪ | ❓ Segment D Educational (deal-breaker AI text) | ❓ Non instancié | ✅ inclus dans E |
+| Parent / adulte caregiver | ⚪ Hors scope (pas destinataire du livre lecture) | ⚪ | ⚪ | 🔍 **Segment F potentiel (Mother's Day, Father's Day)** | ⚪ |
+
+La case **Parent × Occasion calendaire** aurait été marquée 🔍 *à investiguer* → obligation d'en parler explicitement au PM avant de skipper. C'est exactement ce qui manquait dans le run initial.
+
+### Pièges à éviter en étape 2a
+
+- **Fusionner "héros du contenu" et "destinataire"** : un produit peut avoir l'enfant comme héros mais être destiné au parent. Bien séparer.
+- **Matrice avec un seul axe réel** : si la "matrice" est en fait une liste 1D (ex. par âge uniquement), elle ne sert pas son rôle.
+- **Matrice trop fine** (ex. 7 valeurs × 7 valeurs = 49 cases) : non actionnable. Viser 3-5 valeurs par axe.
+- **Cases instanciées sans label de segment** : si une case est marquée ✅, elle doit pointer vers un nom de segment de l'étape 2b.
+- **Passer l'étape sous prétexte de "c'est évident"** : le garde-fou existe précisément pour les cas où ça semble évident.
+
+## Étape 2b — Segmentation nommée
+
+**Objectif** : produire le draft de segments à partir des cases ✅ de la matrice 2a, en croisant les trois angles classiques.
+
+**Les trois angles à croiser obligatoirement** (sur chaque segment nommé) :
 
 1. **Psychographique** — motivations, valeurs, occasions (ex. "Memory keepers émotionnels", "Sharers sociaux pragmatiques", "Gifters dernière minute")
 2. **Démographique** — âge, revenus, situation familiale, géographie US (ex. "Millennial parents, HHI 75k+, suburbs")
@@ -35,14 +105,15 @@ Ce fichier détaille chaque étape du framework `pmm-opportunity`. Le SKILL.md o
 **Livrable attendu** : pour chaque segment (viser 3 à 6 segments, pas plus) :
 
 - Nom court et mémorable
+- Pointeur explicite vers la case de la matrice 2a qu'il instancie
 - Caractéristiques distinctives sur les 3 angles
 - Taille estimée ou "non couvert" si pas de source solide
 - **Sources cliquables datées** pour chaque caractéristique distinctive
 - Pourquoi ce segment est pertinent pour la catégorie
 
-**Pas de checkpoint bloquant à cette étape.** Le draft de segmentation est produit puis **le skill enchaîne directement sur l'étape 3** sans demander validation intermédiaire. Tout le challenge PM se fait en étape 5 sur le livrable global.
+**Pas de checkpoint bloquant à cette étape.** Le draft de segmentation est produit puis **le skill enchaîne directement sur l'étape 3** sans demander validation intermédiaire. Tout le challenge PM se fait en étape 5 sur le livrable global — y compris le challenge sur la matrice 2a.
 
-Raison : éviter les interruptions intempestives qui cassent le flow d'analyse. Le PM voit la segmentation proposée dans le livrable final et la challenge alors (ou demande un rerun `/segment` ciblé si la segmentation est fausse à la racine).
+Raison : éviter les interruptions intempestives qui cassent le flow d'analyse. Le PM voit la segmentation ET la matrice dans le livrable final et challenge alors (ou demande un rerun `/segment` ciblé si la segmentation est fausse à la racine).
 
 **Pièges à éviter** :
 
@@ -50,6 +121,7 @@ Raison : éviter les interruptions intempestives qui cassent le flow d'analyse. 
 - Segments qui se recouvrent fortement → refaire
 - Segments inventés sans source sur les caractéristiques → refaire
 - Un segment par persona Pictarine sans challenger la nomenclature interne
+- **Segment nommé sans correspondance dans la matrice 2a** → violation de l'étape 2a
 
 ## Étape 3 — Opportunity framing
 
@@ -141,27 +213,31 @@ Pour chaque segment, remplir un tableau :
 
 ## Étape 5 — Challenge
 
-**Objectif** : construire la conviction du PM, pas lui imposer un ranking. **C'est LE moment où le PM challenge toute l'analyse** — segmentation incluse, puisqu'il n'y a pas de checkpoint intermédiaire à l'étape 2.
+**Objectif** : construire la conviction du PM, pas lui imposer un ranking. **C'est LE moment où le PM challenge toute l'analyse** — matrice d'axes et segmentation incluses, puisqu'il n'y a pas de checkpoint intermédiaire aux étapes 2a/2b.
 
 **Déroulé** :
 
-1. Présenter le livrable global (segmentation + scoring + ranking)
-2. Demander explicitement via AskUserQuestion, en trois questions distinctes :
+1. Présenter le livrable global (matrice d'axes + segmentation + scoring + ranking)
+2. Demander explicitement via AskUserQuestion, en **quatre questions distinctes** :
    - "Sur quel(s) segment(s) as-tu une conviction différente du scoring ? Pourquoi ?"
    - "La segmentation elle-même te paraît-elle juste, ou un angle te semble manquant/faux ?"
    - "Y a-t-il un facteur que la grille ne capte pas et qui devrait peser dans ta décision ?"
-3. Pour chaque divergence : creuser **la raison** — information supplémentaire du PM, biais dans le scoring, facteur non capté par la grille
-4. Documenter les divergences dans le livrable final, sans les résoudre artificiellement. Si la segmentation est contestée à la racine, proposer au PM de relancer `/segment` ciblé plutôt que de patcher.
+   - **"Regarde la matrice d'axes (block 3.0). Y a-t-il une case que j'ai oubliée, mal nommée ou mal statuée (instanciée / hors scope / non couvert / à investiguer) ?"** ← question dédiée au garde-fou 2a, dernière chance d'intercepter un segment orthogonal manquant
+3. Pour chaque divergence : creuser **la raison** — information supplémentaire du PM, biais dans le scoring, facteur non capté par la grille, case de matrice mal traitée
+4. Documenter les divergences dans le livrable final, sans les résoudre artificiellement. Si la segmentation est contestée à la racine (y compris via la matrice), proposer au PM de relancer `/segment` ciblé plutôt que de patcher.
 
 **Ce qu'il faut éviter absolument** :
 
 - Défendre le ranking contre le PM (ce n'est pas le rôle du skill)
 - Modifier silencieusement les scores pour satisfaire le PM (transparence > alignement)
 - Accepter une divergence sans creuser (le "pourquoi" est le livrable)
+- Skipper la question 4 sur la matrice d'axes
 
 **Format de documentation des divergences** :
 
 > **Segment [X]** — scoring IA : [total] / rang [N]. Conviction PM : [description courte]. Raison : [explication du PM]. Statut : [non résolu / intégré comme observation auteur / à re-tester].
+
+> **Matrice d'axes** — case [Destinataire × Trigger] : statut initial [X]. Challenge PM : [description]. Action : [instanciée en nouveau segment F / confirmée hors scope / passée en blind spot V2].
 
 ## Étape 6 — Blind spots
 
@@ -170,7 +246,7 @@ Pour chaque segment, remplir un tableau :
 **Protocole** :
 
 1. Demander au PM s'il peut fournir des accès ou extraits de données internes (commandes, cohortes, retargeting)
-2. Si oui : croiser les segments identifiés à l'étape 2 avec les segments réels dans les données
+2. Si oui : croiser les segments identifiés à l'étape 2b avec les segments réels dans les données, **et vérifier qu'aucune case `❓ non couvert` ou `🔍 à investiguer` de la matrice 2a n'a été oubliée**
 3. Si non : raisonner sur signaux externes :
    - données démographiques US (Census, American Community Survey)
    - search trends (Google Trends US)
@@ -180,6 +256,7 @@ Pour chaque segment, remplir un tableau :
 **Livrable attendu** : liste de 2 à 5 blind spots potentiels, chacun avec :
 
 - Nom et brève description
+- **Si issu d'une case `🔍 à investiguer` de la matrice 2a : le mentionner explicitement**
 - Pourquoi ce segment devrait a priori acheter (lié au JTBD d'un segment voisin)
 - Pourquoi on pense qu'il n'achète pas (hypothèse sourcée ou marquée comme telle)
 - Test à faire pour confirmer ou infirmer (interview, analyse cohorte, campagne pilote)

@@ -10,7 +10,7 @@
     {
       "name": "pmm-opportunity",
       "description": "Framework d'évaluation et priorisation d'opportunités produit sur le marché photo US. Cadre un sujet, segmente le marché, score selon 5 critères pondérés, identifie les blind spots — tout sourcé, auditable, sans recommandation.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "productivity",
       "author": {
         "name": "Pictarine"
