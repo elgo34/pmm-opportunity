@@ -1,0 +1,38 @@
+# Plugin packaging artifacts
+*.plugin
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Node (si jamais)
+node_modules/
+npm-debug.log*
+
+# Python (si scripts utilitaires ajoutés plus tard)
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Checkpoints des runs (générés par le skill en local)
+.pmm-opportunity-run-*.md
+
+# Logs
+*.log
+
+# Secrets — au cas où
+.env
+.env.local
+*.key
+*.pem

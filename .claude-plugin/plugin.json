@@ -1,0 +1,19 @@
+{
+  "name": "pmm-opportunity",
+  "version": "0.1.0",
+  "description": "Framework d'évaluation et priorisation d'opportunités produit sur le marché photo US. Cadre un sujet, segmente le marché, score selon 5 critères pondérés, identifie les blind spots — tout sourcé, auditable, sans recommandation.",
+  "author": {
+    "name": "Elyes Gannoun",
+    "email": "elyes.gannoun@pictarine.com"
+  },
+  "license": "Proprietary",
+  "keywords": [
+    "pmm",
+    "product-management",
+    "opportunity",
+    "photo-market",
+    "pictarine",
+    "scoring",
+    "segmentation"
+  ]
+}
