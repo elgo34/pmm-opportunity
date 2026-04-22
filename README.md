@@ -19,7 +19,7 @@ Le plugin ne donne **jamais** de recommandation d'action — il produit un livra
 
 Product Managers de Pictarine qui pilotent des sujets sur le marché photo américain : impression photo, photo books, wall art, prints, cadeaux photo, et verticales adjacentes (stationery, home decor, gifting, print-on-demand).
 
-## Installation
+## Installation dans Cowork
 
 Depuis l'app Cowork, ouvre le fichier `pmm-opportunity.plugin` et valide l'installation. Le plugin est autonome — aucune configuration MCP ou hook n'est requise à l'installation.
 
@@ -28,6 +28,8 @@ Depuis l'app Cowork, ouvre le fichier `pmm-opportunity.plugin` et valide l'insta
 - Toute autre page Notion de contexte stratégique (roadmap, OKRs, contraintes)
 
 Pas de persistance : le skill ne stocke aucune URL entre runs. Cela te permet de cibler un contexte différent à chaque analyse.
+
+> **Tip Deep Research** — Pour une couverture sources maximale, lance le skill depuis Claude.ai en activant le mode **Deep Research** avant d'invoquer une sous-commande. Le skill bénéficie automatiquement du multi-pass autonome de recherche web.
 
 ## Comment le déclencher
 
