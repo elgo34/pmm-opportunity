@@ -168,7 +168,7 @@ Liste opérationnelle dans `references/sources-list.md`. Synthèse :
 
 **Être proactif** : aller chercher plusieurs sources avant de répondre. Ne pas se contenter d'une seule.
 
-### Protocole de recherche itérative (steps 3 & 4)
+### Protocole de recherche itérative (étapes 3 & 4)
 
 Pour les étapes de recherche intensive (step 3 : opportunity framing, step 4 : scoring), ne pas se limiter à une passe unique. Dérouler le protocole suivant :
 
@@ -178,6 +178,8 @@ Pour les étapes de recherche intensive (step 3 : opportunity framing, step 4 : 
 4. **Requêtes de raffinement** — Lancer de nouvelles `WebSearch` ciblées sur les gaps identifiés (ex. `"[concurrent] pricing US 2025"`, `"[catégorie] reddit complaints"`, `"[segment] photo gifts US market size"`).
 5. **Fetch complémentaire** — `WebFetch` sur les nouvelles URLs identifiées au step 4.
 6. **Arrêt de la collecte** — Stopper quand les nouvelles requêtes renvoient des sources déjà vues ou des données redondantes. Ne pas chercher l'exhaustivité — chercher la couverture des angles clés.
+
+**Règle de vérification** : les règles anti-hallucination de `references/sourcing-rules.md` s'appliquent à chaque URL avant insertion dans le livrable — indépendamment de ce protocole.
 
 **Tracer les gaps résiduels** : toute zone non couverte après le protocole doit être listée dans "Limites et zones non couvertes" du livrable, avec la raison (source payante, donnée non publique, segment trop niche pour avoir des données US publiées).
 
