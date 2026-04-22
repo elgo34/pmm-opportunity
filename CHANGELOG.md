@@ -5,6 +5,34 @@ Toutes les évolutions notables de `pmm-opportunity` sont documentées ici.
 Le format s'inspire de [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 et ce projet suit le [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-04-22
+
+Documentation et protocole de recherche itérative.
+
+### Added
+
+- **CONTRIBUTING.md** : guide de contribution interne — fichiers modifiables, conventions semver, process de PR, conventions de commit
+- **Protocole de recherche itérative** dans `SKILL.md` (section "Sources à explorer systématiquement") : multi-pass WebSearch + WebFetch pour les étapes 3 & 4, avec détection de gaps et arrêt de collecte raisonné
+- **Règles de collecte itérative** dans `references/sourcing-rules.md` : pas de doublon de source, traçabilité des requêtes de raffinement, consigne sur la première vague mainstream
+- **Note Deep Research** dans `SKILL.md` : si le PM active Deep Research (Claude.ai), le skill saute le protocole manuel et traite les résultats comme une collecte enrichie
+
+### Changed
+
+- `README.md` : section `## Installation` renommée `## Installation dans Cowork`
+- `README.md` : ajout section `## Liste des skills` (table extensible)
+- `README.md` : ajout section `## Contribution` (lien vers CONTRIBUTING.md)
+- `README.md` : ajout tip Deep Research dans `## Installation dans Cowork`
+
+### Fixed
+
+- `SKILL.md` : terminologie `(steps 3 & 4)` → `(étapes 3 & 4)` dans le protocole itératif
+- `SKILL.md` : ajout cross-référence aux règles anti-hallucination dans le protocole
+- `sourcing-rules.md` : cross-référence `## Vérifiabilité des liens`, section canonique "Limites et zones non couvertes", remplacement de "crédibles" par "pertinentes pour les angles de niche"
+
+### Why
+
+Session de refactoring documentaire 2026-04-22 : structuration du repo pour le partage interne Pictarine, et formalisation du comportement de recherche itérative (auparavant implicite) en règle explicite dans le skill et les références.
+
 ## [0.2.0] — 2026-04-20
 
 Méthode de segmentation v1.0 → **v1.1** : matrice d'axes 2D obligatoire avant toute segmentation nommée. Grille de scoring inchangée (reste en v1.0).
@@ -59,5 +87,6 @@ Version initiale du plugin — framework d'évaluation et priorisation d'opportu
 - Livrable : concis et impactant, pas de borne de mots
 - Ce plugin remplace l'ancien skill `pmm-market-partner:pmm-opportunities`
 
+[0.3.0]: https://github.com/pictarine/pmm-opportunity/releases/tag/v0.3.0
 [0.2.0]: https://github.com/pictarine/pmm-opportunity/releases/tag/v0.2.0
 [0.1.0]: https://github.com/pictarine/pmm-opportunity/releases/tag/v0.1.0
