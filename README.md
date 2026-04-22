@@ -90,6 +90,10 @@ Le plugin couvre exclusivement le **marché américain** avec des sources US str
 
 Le livrable est rédigé en français, avec les **citations de sources conservées en anglais** (fidélité aux verbatims).
 
+## Contribution
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md) pour les conventions de contribution, le versioning et le process de review interne.
+
 ## Auteur
 
 Elyes Gannoun — Pictarine
