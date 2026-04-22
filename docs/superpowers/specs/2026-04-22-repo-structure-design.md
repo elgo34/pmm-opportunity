@@ -71,6 +71,27 @@ Le `.gitignore` actuel couvre déjà tous les cas utiles pour un repo markdown-o
 
 Les specs `docs/superpowers/` sont **committées** volontairement — elles documentent les décisions de design, cohérent avec la philosophie du `CHANGELOG.md` qui trace déjà les "Why" de chaque version.
 
-### 5. Licence — Proprietary (inchangée)
+### 5. Intégration Deep Research
+
+Deep Research est un mode d'interface Claude.ai — il n'est pas invocable comme outil depuis un SKILL.md. Les deux approches sont complémentaires et toutes deux retenues.
+
+**Approche 1 — Émulation dans SKILL.md (recherche itérative multi-pass)**
+
+Enrichir les étapes de recherche intensive (step 3 : opportunity framing, step 4 : scoring) avec un pattern explicite :
+1. Recherche initiale large (`WebSearch`)
+2. Fetch des 3-5 liens les plus prometteurs (`WebFetch`)
+3. Analyse des gaps — quelles sources manquent, quels angles ne sont pas couverts
+4. Requêtes de raffinement ciblées (`WebSearch`)
+5. Fetch complémentaire sur les nouvelles sources identifiées
+
+Ce pattern s'ajoute à la liste des sources à explorer dans `SKILL.md` (section "Sources à explorer systématiquement") et dans `references/sourcing-rules.md`. Il ne remplace pas les règles existantes — il les complète avec un protocole d'itération.
+
+**Approche 2 — Documentation du workflow Deep Research en amont**
+
+Ajouter dans le README une section (ou note dans `## Installation dans Cowork`) expliquant que le PM peut activer Deep Research dans Claude.ai avant d'invoquer le skill. Dans ce contexte, le skill bénéficie automatiquement du multi-pass autonome sans modification de ses instructions.
+
+Documentation à ajouter : tip dans `## Installation dans Cowork` ou dans la cheat sheet des sous-commandes — "Pour une couverture sources maximale, lancer depuis Claude.ai en mode Deep Research."
+
+### 6. Licence — Proprietary (inchangée)
 
 Usage strictement interne Pictarine. La licence Proprietary actuelle est appropriée. Si le périmètre change (marketplace public, contribution externe), basculer vers MIT à ce moment-là.
