@@ -168,6 +168,21 @@ Liste opérationnelle dans `references/sources-list.md`. Synthèse :
 
 **Être proactif** : aller chercher plusieurs sources avant de répondre. Ne pas se contenter d'une seule.
 
+### Protocole de recherche itérative (steps 3 & 4)
+
+Pour les étapes de recherche intensive (step 3 : opportunity framing, step 4 : scoring), ne pas se limiter à une passe unique. Dérouler le protocole suivant :
+
+1. **Recherche initiale large** — `WebSearch` sur le sujet principal et les segments identifiés. Collecter les 5-8 premiers résultats pertinents.
+2. **Fetch des sources prometteuses** — `WebFetch` sur les 3-5 URLs les plus solides (rapports, pages concurrents, app store listings, articles spécialisés).
+3. **Analyse des gaps** — Identifier explicitement : quels segments ou critères ne sont pas couverts par les sources collectées ? Quels angles (pricing, social listening, TAM, avis stores) manquent ?
+4. **Requêtes de raffinement** — Lancer de nouvelles `WebSearch` ciblées sur les gaps identifiés (ex. `"[concurrent] pricing US 2025"`, `"[catégorie] reddit complaints"`, `"[segment] photo gifts US market size"`).
+5. **Fetch complémentaire** — `WebFetch` sur les nouvelles URLs identifiées au step 4.
+6. **Arrêt de la collecte** — Stopper quand les nouvelles requêtes renvoient des sources déjà vues ou des données redondantes. Ne pas chercher l'exhaustivité — chercher la couverture des angles clés.
+
+**Tracer les gaps résiduels** : toute zone non couverte après le protocole doit être listée dans "Limites et zones non couvertes" du livrable, avec la raison (source payante, donnée non publique, segment trop niche pour avoir des données US publiées).
+
+**Si le PM utilise Deep Research** (mode Claude.ai) : le protocole itératif est exécuté automatiquement par Claude avant que le skill reçoive les résultats. Dans ce cas, sauter les steps 1-5 du protocole manuel et traiter les résultats fournis comme une collecte déjà enrichie.
+
 ## Ton et posture
 
 Règles détaillées dans `references/tone-and-posture.md`.
