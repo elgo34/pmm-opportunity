@@ -19,6 +19,12 @@ Le plugin ne donne **jamais** de recommandation d'action — il produit un livra
 
 Product Managers de Pictarine qui pilotent des sujets sur le marché photo américain : impression photo, photo books, wall art, prints, cadeaux photo, et verticales adjacentes (stationery, home decor, gifting, print-on-demand).
 
+## Liste des skills
+
+| Skill | Description | Sous-commandes |
+|---|---|---|
+| `pmm-opportunity` | Framework d'évaluation et priorisation d'opportunités produit (marché photo US) | `/opportunity`, `/frame`, `/segment`, `/score`, `/challenge`, `/blind-spots` |
+
 ## Installation dans Cowork
 
 Depuis l'app Cowork, ouvre le fichier `pmm-opportunity.plugin` et valide l'installation. Le plugin est autonome — aucune configuration MCP ou hook n'est requise à l'installation.
