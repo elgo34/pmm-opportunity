@@ -102,6 +102,15 @@ Certains rapports clés du marché photo US sont payants (Keypoint Intelligence,
 4. **Si le PM n'a pas d'accès** : marquer `non couvert — source payante non accédée : [rapport]`. Jamais extrapoler ce que le rapport pourrait dire.
 5. **Citations indirectes via presse spécialisée** : si Modern Retail, WhatTheyThink, ou autre source de second rang cite un chiffre d'un rapport payant, utiliser en précisant `chiffre [X] cité par [presse] d'après [rapport payant, non accédé directement]`.
 
+## Recherche itérative — règles de collecte
+
+Le protocole de recherche itérative (défini dans `SKILL.md`) produit plusieurs vagues de sources. Les règles suivantes s'appliquent à chaque vague :
+
+- **Chaque source fetchée compte comme une passe de vérification** — si le `WebFetch` retourne un contenu incohérent avec le résumé `WebSearch`, ne pas insérer la donnée. Relancer une recherche sur une source alternative.
+- **Ne pas sur-indexer la première vague** — les résultats des premières requêtes sont souvent les plus mainstream. Les requêtes de raffinement (step 4 du protocole) atteignent des sources plus spécialisées et souvent plus crédibles.
+- **Pas de doublon de source** — si deux résultats pointent vers le même rapport ou la même étude, une seule citation dans le livrable. Consolider, ne pas dupliquer.
+- **Tracer les requêtes de recherche utilisées** — pour audibilité, noter dans la section "Limites" du livrable les requêtes `WebSearch` clés utilisées lors du raffinement. Cela permet au PM de reproduire ou d'approfondir la collecte.
+
 ## Ordre de préférence des sources
 
 Quand plusieurs sources sont disponibles pour un même point, privilégier dans l'ordre :
