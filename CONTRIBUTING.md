@@ -9,18 +9,18 @@ PMs et collaborateurs Pictarine avec accès au repo GitHub privé.
 | Fichier | Quand le toucher |
 |---|---|
 | `skills/pmm-opportunity/SKILL.md` | Règles absolues, routing des sous-commandes, comportement général du skill |
-| `references/framework-6-etapes.md` | Détail opérationnel des 6 étapes (matrice d'axes, segmentation, JTBD, etc.) |
-| `references/scoring-grid.md` | Critères ou pondérations de la grille de scoring |
-| `references/sourcing-rules.md` | Règles de sourcing, fair use, anti-hallucination, protocole itératif |
-| `references/sources-list.md` | Nouvelles sources à explorer systématiquement |
-| `references/output-format.md` | Structure et format du livrable |
-| `references/tone-and-posture.md` | Posture, ton, règles de communication avec le PM |
+| `skills/pmm-opportunity/references/framework-6-etapes.md` | Détail opérationnel des 6 étapes (matrice d'axes, segmentation, JTBD, etc.) |
+| `skills/pmm-opportunity/references/scoring-grid.md` | Critères ou pondérations de la grille de scoring |
+| `skills/pmm-opportunity/references/sourcing-rules.md` | Règles de sourcing, fair use, anti-hallucination, protocole itératif |
+| `skills/pmm-opportunity/references/sources-list.md` | Nouvelles sources à explorer systématiquement |
+| `skills/pmm-opportunity/references/output-format.md` | Structure et format du livrable |
+| `skills/pmm-opportunity/references/tone-and-posture.md` | Posture, ton, règles de communication avec le PM |
 
 ## Versioning
 
 Ce repo suit [Semantic Versioning](https://semver.org/) :
 
-- **PATCH** (`0.2.x`) — correction d'un comportement, ajout/retrait d'une source, fix d'une règle existante
+- **PATCH** (`0.x.y`) — correction d'un comportement, ajout/retrait d'une source, fix d'une règle existante
 - **MINOR** (`0.x.0`) — nouvelle règle, nouveau fichier de référence, nouveau routing, nouveau protocole
 - **MAJOR** (`x.0.0`) — refonte du framework, breaking change sur les sous-commandes ou la structure du livrable
 
